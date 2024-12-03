@@ -1,3 +1,4 @@
+from typing import List
 from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAIEmbeddings
 from langchain_core.messages import HumanMessage
@@ -11,14 +12,7 @@ def query_with_human_message(query: str):
   response = chat_model.invoke([HumanMessage(content=query)])
   return response.content
 
-def query_with_embedding(query: str):
-  documents = [
-    "I love programming in Python.",
-    "Machine learning is fascinating.",
-    "Natural language processing is a subfield of AI.",
-    "I enjoy playing video games.",
-  ]
-
+def query_with_embedding(documents: List[str], query: str):
   document_embeddings = embedding_model.embed_documents(documents)
   query_embedding = embedding_model.embed_query(query)
 
