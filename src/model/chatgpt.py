@@ -13,6 +13,7 @@ def query_with_human_message(query: str):
   return response.content
 
 def query_with_embedding(documents: List[str], query: str):
+  print("Documents:", documents)
   document_embeddings = embedding_model.embed_documents(documents)
   query_embedding = embedding_model.embed_query(query)
 

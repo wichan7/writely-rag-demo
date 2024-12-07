@@ -1,14 +1,12 @@
-# coding=utf-8
-
-from sqlalchemy import Column, String, Sequence
+from sqlalchemy import Column, String, Integer
 from src.core.db import Base
-
 
 class Document(Base):
     __tablename__ = 'document'
 
-    id = Column(Sequence, primary_key=True)
+    id = Column(Integer, primary_key=True)
     content = Column(String)
 
-    def __init__(self, content):
+    def __init__(self, id, content):
+        self.id = id
         self.content = content

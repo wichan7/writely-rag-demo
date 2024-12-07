@@ -9,6 +9,6 @@ def query_with_embedding(query: str):
   session = session_factory()
 
   document_query = session.query(Document)
-  documents = document_query.all()
+  documents = [document.content for document in document_query.all()]
 
   return chatgpt.query_with_embedding(documents, query)
