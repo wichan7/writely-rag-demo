@@ -10,3 +10,6 @@ class Document(Base):
     def __init__(self, id, content):
         self.id = id
         self.content = content
+    
+    def as_dict(self):
+      return {cur.name: getattr(self, cur.name) for cur in self.__table__.columns}
