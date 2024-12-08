@@ -7,14 +7,7 @@ target python version: 3.10
 # installation
 
 ```sh
-pip install fastapi
-pip install "uvicorn[standard]"
-pip install psycopg2-binary
-pip install langchain_openai
-pip install scikit-learn
-pip install sqlalchemy
-pip install python-dotenv
-
+pip install -r requirements.txt
 ```
 
 # Build Instructions
