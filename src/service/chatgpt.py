@@ -4,8 +4,7 @@ from src.decorator.transactional import transactional
 from src.model.document import Document
 
 def query_with_human_message(query: str):
-  result = chatgpt.query_with_human_message(query)
-  return result
+  return chatgpt.query_with_human_message(query)
 
 @transactional
 def query_with_embedding(query: str):
@@ -14,6 +13,4 @@ def query_with_embedding(query: str):
   document_query = session.query(Document)
   documents = [document.content for document in document_query.all()]
 
-  result = chatgpt.query_with_embedding(documents, query)
-
-  return result
+  return chatgpt.query_with_embedding(documents, query)

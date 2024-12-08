@@ -4,8 +4,9 @@ def transactional(func):
     def inner(*args, **kwargs):
         session = Session()
         try:
-            func(*args, **kwargs)
+            result = func(*args, **kwargs)
             session.commit()
+            return result
         except:
             session.rollback()
             raise
