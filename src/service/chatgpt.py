@@ -1,10 +1,11 @@
-from src.core.db import Session
 import src.model.chatgpt as chatgpt
-from decorator.transactional import transactional
+from src.core.db import Session
+from src.decorator.transactional import transactional
 from src.model.document import Document
 
 def query_with_human_message(query: str):
-  return chatgpt.query_with_human_message(query)
+  result = chatgpt.query_with_human_message(query)
+  return result
 
 @transactional
 def query_with_embedding(query: str):
@@ -13,4 +14,6 @@ def query_with_embedding(query: str):
   document_query = session.query(Document)
   documents = [document.content for document in document_query.all()]
 
-  return chatgpt.query_with_embedding(documents, query)
+  result = chatgpt.query_with_embedding(documents, query)
+
+  return result

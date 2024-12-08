@@ -24,4 +24,4 @@ def query_with_embedding(documents: List[str], query: str):
   print("Most similar document:", documents[most_similar_index])
   print("Similarity score:", similarities[most_similar_index])
 
-  return
+  return documents[most_similar_index]
